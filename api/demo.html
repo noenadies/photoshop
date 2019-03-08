@@ -1,0 +1,133 @@
+
+<!DOCTYPE html> 
+<html>
+
+<!-- Mirrored from www.photopea.com/api/demo by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2019 02:13:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+	<link rel="stylesheet" href="../../blog.photopea.com/wp-content/themes/simplex/style.css" type="text/css" media="screen" />
+	<link rel='stylesheet' id='casper-google-fonts-css'  href='http://fonts.googleapis.com/css?family=Noto+Serif%3A400%2C700%2C400italic%7COpen+Sans%3A700%2C400&amp;ver=4.0.1' type='text/css' media='all' />
+	
+	<title>Photopea API</title>
+	
+			
+	</head>
+
+	<body>
+<div id="page">
+	<div id="header"> 
+		<a href="../index.html" class="title">Photopea API</a> 
+		<!--<p>Web-based image editor.</p>-->
+		<a href="http://blog.photopea.com/">Blog</a> |
+		<a href="../learn/index.html">Learn</a> |
+		<a href="../tuts/index.html">Tutorials</a> |
+		<a class="curr" href="index.html">API</a> |
+		<a href="http://www.facebook.com/photopea">Facebook</a> |
+		<a href="http://www.twitter.com/photopeacom">Twitter</a> 
+	</div>
+	
+	<div id="main" style="max-width:960px;">
+		<div id="sidebar" style="width:20%;">
+			<!--<h3>Topics</h3>-->
+			<ul>
+						<li class="lvl0"><a href="index.html">API Spec</a></li>
+			<li class="lvl1"><a href="environment.html">Environment</a></li>
+			<li class="lvl1"><a href="live.html">Live Messaging</a></li>
+			<li class="lvl1"><a href="plugins.html">Plugins</a></li>
+			<li class="lvl0"><a href="playground.html">Playground</a></li>
+			<li class="lvl0 active"><a href="demo.html">Demo</a></li>
+			<li class="lvl0"><a href="accounts.html">Accounts</a></li>
+			</ul>
+		</div>
+		<div id="content" style="width:80%;">
+
+			<div class="post">
+						
+		
+			<style type="text/css">
+				.image {
+					display: inline-block;
+					width:9em;
+					height:9em;
+					margin: 1em;
+				}
+				img {
+					width:100%;
+					height:80%;
+				}
+			</style>
+		
+		<script>
+			var images = ["Miranda_kerr.sketch", "alza.psd", "cballs.html", "editor.sketch", "martian.sketch", "milk.sketch", "missing.html", "mountains.webp", "new-1546895285.html", "new-Morion-LIVE_v1.02.html", "paper.xcf", "pea.psd", "pea_logo.html", "photo-1516675776559-e69f828f69e0?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjM1Nzl9", "pug.html", "raptor.png"];
+		
+			function go(e)
+			{
+				var html = "";
+				var fmts = ["png","jpg","jpeg","webp"];
+				for(var i=0; i<images.length; i++)
+				{
+					var editOBJ = {
+						"files" : [
+							"//www.photopea.com/api/img/" + images[i],
+						],
+						"server" : {
+							"version":1,
+							"url" : "//www.photopea.com/api/saveImage.php",
+							"formats" : [ images[i].split(".")[1] ]
+						}
+					}
+					var suff = images[i].split(".").pop();
+					
+					var editURL = "//www.photopea.com#" + encodeURI(JSON.stringify(editOBJ));
+					html += "<div class=\"image\">"
+					html += "<a href=\"img/" + images[i] + "\">";
+					if(fmts.indexOf(suff)!=-1) html += "<img src=\"img/" + images[i] + "\" />";
+					else                       html += "<img src=\"missing.png\" />";
+					html += "</a>";
+					html += "<span>"+images[i]+"</span> <br />";
+					html += "<a href=\"" + editURL + "\">Edit</a>";
+					html += "</div>"
+				}
+				document.getElementById("imgcont").innerHTML = html;
+				//updatePlayground();
+				
+				//window.addEventListener("hashchange", onHashChange, false);
+				//onHashChange();
+				
+			}		
+			document.body.onload = go;
+		
+		</script>
+		
+		
+		<h1>Editing local images with Photopea</h1>
+		<p>Click "Edit" to open an image in Photopea. Click "File" - "Save (to Server)" in Photopea to save it back.</p>
+		<div id="imgcont"></div>			</div>
+		</div>
+	</div>
+		
+	<div id="disqus_thread"></div>
+	<script>
+
+	/**
+	*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+	*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+	/*
+	var disqus_config = function () {
+	this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+	this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	};
+	*/
+	(function() { // DON'T EDIT BELOW THIS LINE
+	var d = document, s = d.createElement('script');
+	s.src = '../../photopeablog.disqus.com/embed.js';
+	s.setAttribute('data-timestamp', +new Date());
+	(d.head || d.body).appendChild(s);
+	})();
+	</script>
+	 
+</div>
+	
+
+<!-- Mirrored from www.photopea.com/api/demo by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2019 02:13:20 GMT -->
+</html>
